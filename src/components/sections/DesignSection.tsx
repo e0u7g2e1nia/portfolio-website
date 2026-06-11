@@ -64,48 +64,44 @@ export default function DesignSection() {
               tiltX={2}
               autoInterval={5000}
             />
-            <div className="design-media-card-text" style={{ paddingTop: "24px", maxWidth: BOOK_W }}>
-              <h2
-                className="font-serif"
-                style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.6rem)", fontWeight: 400, lineHeight: 1.3, color: "#2e2e2e", marginBottom: "10px" }}
-              >
+            <div style={{ paddingTop: "24px", maxWidth: BOOK_W }}>
+              <h2 className="font-serif" style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.6rem)", fontWeight: 400, lineHeight: 1.3, color: "#2e2e2e", marginBottom: "10px" }}>
                 {content.design.book.title}
               </h2>
               <p style={{ fontSize: "12px", color: "#9a9aaa", lineHeight: 1.7 }}>{content.design.book.desc}</p>
             </div>
           </div>
 
+          {/* spacer — expands on desktop to push cards apart, collapses on mobile */}
+          <div style={{ flex: "1 0 clamp(16px, 3vw, 40px)" }} />
+
           {/* ── Card 2: Video ── */}
           <div className="design-media-card">
-            <div
+            {/* No overflow:hidden wrapper — iOS Safari bug: blocks video playback */}
+            <video
+              src="/assets/design/video/video.MP4"
+              poster="/assets/design/video/cover.JPG"
               style={{
+                height: MEDIA_H,
+                width: "auto",
+                display: "block",
                 borderRadius: "12px",
-                overflow: "hidden",
                 boxShadow: "0 4px 24px rgba(0,0,0,0.10)",
-                lineHeight: 0,
-                display: "inline-block",
               }}
-            >
-              <video
-                className="design-media-card-video"
-                src="/assets/design/video/video.MP4"
-                poster="/assets/design/video/cover.JPG"
-                style={{ height: MEDIA_H, width: "auto", display: "block" }}
-                controls
-                playsInline
-                loop
-              />
-            </div>
-            <div className="design-media-card-text" style={{ paddingTop: "24px" }}>
-              <h2
-                className="font-serif"
-                style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.6rem)", fontWeight: 400, lineHeight: 1.3, color: "#2e2e2e", marginBottom: "10px" }}
-              >
+              controls
+              playsInline
+              preload="none"
+            />
+            <div style={{ paddingTop: "24px" }}>
+              <h2 className="font-serif" style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.6rem)", fontWeight: 400, lineHeight: 1.3, color: "#2e2e2e", marginBottom: "10px" }}>
                 {content.design.video.title}
               </h2>
               <p style={{ fontSize: "12px", color: "#9a9aaa", lineHeight: 1.7 }}>{content.design.video.desc}</p>
             </div>
           </div>
+
+          {/* spacer */}
+          <div style={{ flex: "1 0 clamp(16px, 3vw, 40px)" }} />
 
           {/* ── Card 3: Brochure ── */}
           <div className="design-media-card">
@@ -116,11 +112,8 @@ export default function DesignSection() {
               tiltY={10}
               tiltX={2}
             />
-            <div className="design-media-card-text" style={{ paddingTop: "24px", maxWidth: BROCHURE_W }}>
-              <h2
-                className="font-serif"
-                style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.6rem)", fontWeight: 400, lineHeight: 1.3, color: "#2e2e2e", marginBottom: "10px" }}
-              >
+            <div style={{ paddingTop: "24px", maxWidth: BROCHURE_W }}>
+              <h2 className="font-serif" style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.6rem)", fontWeight: 400, lineHeight: 1.3, color: "#2e2e2e", marginBottom: "10px" }}>
                 {content.design.brochure.title}
               </h2>
               <p style={{ fontSize: "12px", color: "#9a9aaa", lineHeight: 1.7 }}>{content.design.brochure.desc}</p>
