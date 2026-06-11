@@ -40,7 +40,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# (video files now tracked via Git LFS)
+# raw uncompressed video originals (use video_web.mp4 for web)
+public/assets/design/video/video.MP4
 
 # psd source files
 public/assets/**/*.psd

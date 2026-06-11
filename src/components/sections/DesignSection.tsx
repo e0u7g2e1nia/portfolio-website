@@ -92,7 +92,7 @@ export default function DesignSection() {
                 playsInline
                 preload="metadata"
               >
-                <source src="/assets/design/video/video.MP4" type="video/mp4" />
+                <source src="/assets/design/video/video_web.mp4" type="video/mp4" />
               </video>
             </div>
             <div style={{ paddingTop: "24px", width: `calc(${MEDIA_H} * 16 / 9)` }}>
