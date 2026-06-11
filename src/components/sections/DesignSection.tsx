@@ -76,16 +76,17 @@ export default function DesignSection() {
               borderRadius: "12px",
               overflow: "hidden",
               boxShadow: "0 4px 24px rgba(0,0,0,0.10)",
+              lineHeight: 0,
               alignSelf: "start",
-              height: MEDIA_H,
-              aspectRatio: "16/9",
             }}
           >
-            <iframe
-              src="https://player.bilibili.com/player.html?bvid=BV14u4y1r7hW&page=1&as_wide=1&high_quality=1&danmaku=0&autoplay=0"
-              style={{ width: "100%", height: "100%", border: "none", display: "block" }}
-              allowFullScreen
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            <video
+              src="/assets/design/video/video.MP4"
+              poster="/assets/design/video/cover.JPG"
+              style={{ height: MEDIA_H, width: "auto", display: "block" }}
+              controls
+              playsInline
+              loop
             />
           </div>
           <div />

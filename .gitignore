@@ -40,8 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# large video source files (hosted externally)
-public/assets/design/video/video.MP4
+# (video files now tracked via Git LFS)
 
 # psd source files
 public/assets/**/*.psd
