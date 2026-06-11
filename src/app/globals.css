@@ -87,33 +87,17 @@ body {
 /* Design gallery hover pause */
 .design-gallery-outer:hover .design-strip { animation-play-state: paused; }
 
-/* Design section media grid — desktop row, mobile column */
+/* Design section media grid — horizontal scroll on all screens */
 .design-media-grid {
   display: flex;
   gap: clamp(16px, 3vw, 40px);
   align-items: flex-start;
   overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(60,60,60,0.22) transparent;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 8px;
 }
+.design-media-grid::-webkit-scrollbar { height: 4px; }
+.design-media-grid::-webkit-scrollbar-thumb { background: rgba(60,60,60,0.22); border-radius: 2px; }
 .design-media-card { flex-shrink: 0; }
-
-@media (max-width: 640px) {
-  .design-media-grid {
-    flex-direction: column;
-    overflow-x: visible;
-    gap: 40px;
-  }
-  .design-media-card {
-    width: 100%;
-    flex-shrink: 1;
-  }
-  .design-media-card-video {
-    width: 100% !important;
-    height: auto !important;
-    aspect-ratio: 16 / 9;
-    border-radius: 12px;
-  }
-  .design-media-card-text {
-    padding-top: 16px !important;
-    width: 100% !important;
-  }
-}

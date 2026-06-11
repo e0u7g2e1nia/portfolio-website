@@ -38,7 +38,7 @@ export default function DesignSection() {
   const openLightbox = useLightbox();
   return (
     <section id="design" className="section-design" style={{ padding: "clamp(20px, 4vw, 50px) 0" }}>
-      <div style={{ padding: "0 6vw", marginBottom: "32px" }}>
+      <div style={{ marginBottom: "32px" }}>
         <p
           style={{
             fontSize: "11px",
@@ -46,12 +46,13 @@ export default function DesignSection() {
             color: "#6aaa90",
             textTransform: "uppercase",
             marginBottom: "12px",
+            padding: "0 6vw",
           }}
         >
           {content.design.sectionLabel}
         </p>
 
-        <div className="design-media-grid">
+        <div className="design-media-grid" style={{ padding: "0 6vw" }}>
           {/* ── Card 1: Book ── */}
           <div className="design-media-card">
             <BookFlip
@@ -63,7 +64,7 @@ export default function DesignSection() {
               tiltX={2}
               autoInterval={5000}
             />
-            <div className="design-media-card-text" style={{ paddingTop: "40px", width: BOOK_W }}>
+            <div className="design-media-card-text" style={{ paddingTop: "24px", maxWidth: BOOK_W }}>
               <h2
                 className="font-serif"
                 style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.6rem)", fontWeight: 400, lineHeight: 1.3, color: "#2e2e2e", marginBottom: "10px" }}
@@ -95,7 +96,7 @@ export default function DesignSection() {
                 loop
               />
             </div>
-            <div className="design-media-card-text" style={{ paddingTop: "40px" }}>
+            <div className="design-media-card-text" style={{ paddingTop: "24px" }}>
               <h2
                 className="font-serif"
                 style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.6rem)", fontWeight: 400, lineHeight: 1.3, color: "#2e2e2e", marginBottom: "10px" }}
@@ -115,7 +116,7 @@ export default function DesignSection() {
               tiltY={10}
               tiltX={2}
             />
-            <div className="design-media-card-text" style={{ paddingTop: "40px", width: BROCHURE_W }}>
+            <div className="design-media-card-text" style={{ paddingTop: "24px", maxWidth: BROCHURE_W }}>
               <h2
                 className="font-serif"
                 style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.6rem)", fontWeight: 400, lineHeight: 1.3, color: "#2e2e2e", marginBottom: "10px" }}
