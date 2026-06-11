@@ -77,22 +77,25 @@ export default function DesignSection() {
 
           {/* ── Card 2: Video ── */}
           <div className="design-media-card">
-            {/* No overflow:hidden wrapper — iOS Safari bug: blocks video playback */}
-            <video
-              src="/assets/design/video/video.MP4"
-              poster="/assets/design/video/cover.JPG"
-              style={{
-                height: MEDIA_H,
-                width: "auto",
-                display: "block",
-                borderRadius: "12px",
-                boxShadow: "0 4px 24px rgba(0,0,0,0.10)",
-              }}
-              controls
-              playsInline
-              preload="none"
-            />
-            <div style={{ paddingTop: "24px" }}>
+            {/* Fixed-size wrapper so spacers work before video loads */}
+            <div style={{ width: `calc(${MEDIA_H} * 16 / 9)`, height: MEDIA_H, flexShrink: 0 }}>
+              <video
+                poster="/assets/design/video/cover.JPG"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  display: "block",
+                  borderRadius: "12px",
+                  boxShadow: "0 4px 24px rgba(0,0,0,0.10)",
+                }}
+                controls
+                playsInline
+                preload="metadata"
+              >
+                <source src="/assets/design/video/video.MP4" type="video/mp4" />
+              </video>
+            </div>
+            <div style={{ paddingTop: "24px", width: `calc(${MEDIA_H} * 16 / 9)` }}>
               <h2 className="font-serif" style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.6rem)", fontWeight: 400, lineHeight: 1.3, color: "#2e2e2e", marginBottom: "10px" }}>
                 {content.design.video.title}
               </h2>
