@@ -1,26 +1,88 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-serif: 'Playfair Display', 'Songti SC', 'STSong', Georgia, serif;
+  --font-sans: 'PingFang SC', 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+*, *::before, *::after {
+  cursor: none !important;
+  box-sizing: border-box;
+}
+
+/* Lightbox overlay — restore visible cursor */
+.lightbox-overlay { cursor: zoom-out !important; }
+.lightbox-overlay img { cursor: default !important; }
+.lightbox-close { cursor: pointer !important; }
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: #3c3c3c;
+  font-family: 'Playfair Display', 'Songti SC', 'STSong', Georgia, serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #e1e6ef 0%, #f1e5e7 100%);
 }
+
+.font-serif {
+  font-family: 'Playfair Display', 'Songti SC', 'STSong', Georgia, serif;
+}
+
+.section-hero, .section-product, .section-design, .section-social {
+  background: transparent;
+}
+
+.phone-frame {
+  border-radius: 2.5rem;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.08), inset 0 0 0 1.5px rgba(0,0,0,0.06);
+  overflow: hidden;
+  background: #fff;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Photography auto-scroll gallery */
+@keyframes photo-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.photo-strip {
+  animation: photo-scroll 141s linear infinite;
+}
+.photo-gallery-outer:hover .photo-strip {
+  animation-play-state: paused;
+}
+
+/* Hide scrollbars globally for scroll containers */
+.scrollbar-none {
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* Thin scrollbar — vertical */
+.thin-scrollbar { scrollbar-width: thin; scrollbar-color: rgba(60,60,60,0.22) transparent; }
+.thin-scrollbar::-webkit-scrollbar { width: 4px; }
+.thin-scrollbar::-webkit-scrollbar-thumb { background: rgba(60,60,60,0.22); border-radius: 2px; }
+.thin-scrollbar::-webkit-scrollbar-track { background: rgba(60,60,60,0.04); }
+
+/* Thin scrollbar — horizontal */
+.thin-scrollbar-h { scrollbar-width: thin; scrollbar-color: rgba(60,60,60,0.22) transparent; }
+.thin-scrollbar-h::-webkit-scrollbar { height: 4px; }
+.thin-scrollbar-h::-webkit-scrollbar-thumb { background: rgba(60,60,60,0.22); border-radius: 2px; }
+.thin-scrollbar-h::-webkit-scrollbar-track { background: rgba(60,60,60,0.04); }
+
+/* Design gallery hover pause */
+.design-gallery-outer:hover .design-strip { animation-play-state: paused; }
