@@ -51,82 +51,79 @@ export default function DesignSection() {
           {content.design.sectionLabel}
         </p>
 
-        {/* Grid: media row + text row, spacer cols absorb leftover width */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: `${BOOK_W} minmax(2vw, 1fr) auto minmax(2vw, 1fr) ${BROCHURE_W}`,
-            gridTemplateRows: `${MEDIA_H} auto`,
-            overflowX: "auto",
-          }}
-        >
-          {/* ── Row 1: media ── */}
-          <BookFlip
-            frontSrc="/assets/design/book/穿越烽火到和平-封面.png"
-            backSrc="/assets/design/book/穿越烽火到和平-封底.png"
-            width={BOOK_W}
-            height={MEDIA_H}
-            tiltY={-12}
-            tiltX={2}
-            autoInterval={5000}
-          />
-          <div />
-          <div
-            style={{
-              borderRadius: "12px",
-              overflow: "hidden",
-              boxShadow: "0 4px 24px rgba(0,0,0,0.10)",
-              lineHeight: 0,
-              alignSelf: "start",
-            }}
-          >
-            <video
-              src="/assets/design/video/video.MP4"
-              poster="/assets/design/video/cover.JPG"
-              style={{ height: MEDIA_H, width: "auto", display: "block" }}
-              controls
-              playsInline
-              loop
+        <div className="design-media-grid">
+          {/* ── Card 1: Book ── */}
+          <div className="design-media-card">
+            <BookFlip
+              frontSrc="/assets/design/book/穿越烽火到和平-封面.png"
+              backSrc="/assets/design/book/穿越烽火到和平-封底.png"
+              width={BOOK_W}
+              height={MEDIA_H}
+              tiltY={-12}
+              tiltX={2}
+              autoInterval={5000}
             />
+            <div className="design-media-card-text" style={{ paddingTop: "40px", width: BOOK_W }}>
+              <h2
+                className="font-serif"
+                style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.6rem)", fontWeight: 400, lineHeight: 1.3, color: "#2e2e2e", marginBottom: "10px" }}
+              >
+                {content.design.book.title}
+              </h2>
+              <p style={{ fontSize: "12px", color: "#9a9aaa", lineHeight: 1.7 }}>{content.design.book.desc}</p>
+            </div>
           </div>
-          <div />
-          <TiltedCarousel
-            images={BROCHURE_PAGES}
-            width={BROCHURE_W}
-            height={MEDIA_H}
-            tiltY={10}
-            tiltX={2}
-          />
 
-          {/* ── Row 2: text — all titles naturally at same Y ── */}
-          <div style={{ paddingTop: "40px" }}>
-            <h2
-              className="font-serif"
-              style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.6rem)", fontWeight: 400, lineHeight: 1.3, color: "#2e2e2e", marginBottom: "10px" }}
+          {/* ── Card 2: Video ── */}
+          <div className="design-media-card">
+            <div
+              style={{
+                borderRadius: "12px",
+                overflow: "hidden",
+                boxShadow: "0 4px 24px rgba(0,0,0,0.10)",
+                lineHeight: 0,
+                display: "inline-block",
+              }}
             >
-              {content.design.book.title}
-            </h2>
-            <p style={{ fontSize: "12px", color: "#9a9aaa", lineHeight: 1.7 }}>{content.design.book.desc}</p>
+              <video
+                className="design-media-card-video"
+                src="/assets/design/video/video.MP4"
+                poster="/assets/design/video/cover.JPG"
+                style={{ height: MEDIA_H, width: "auto", display: "block" }}
+                controls
+                playsInline
+                loop
+              />
+            </div>
+            <div className="design-media-card-text" style={{ paddingTop: "40px" }}>
+              <h2
+                className="font-serif"
+                style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.6rem)", fontWeight: 400, lineHeight: 1.3, color: "#2e2e2e", marginBottom: "10px" }}
+              >
+                {content.design.video.title}
+              </h2>
+              <p style={{ fontSize: "12px", color: "#9a9aaa", lineHeight: 1.7 }}>{content.design.video.desc}</p>
+            </div>
           </div>
-          <div />
-          <div style={{ paddingTop: "40px" }}>
-            <h2
-              className="font-serif"
-              style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.6rem)", fontWeight: 400, lineHeight: 1.3, color: "#2e2e2e", marginBottom: "10px" }}
-            >
-              {content.design.video.title}
-            </h2>
-            <p style={{ fontSize: "12px", color: "#9a9aaa", lineHeight: 1.7 }}>{content.design.video.desc}</p>
-          </div>
-          <div />
-          <div style={{ paddingTop: "40px" }}>
-            <h2
-              className="font-serif"
-              style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.6rem)", fontWeight: 400, lineHeight: 1.3, color: "#2e2e2e", marginBottom: "10px" }}
-            >
-              {content.design.brochure.title}
-            </h2>
-            <p style={{ fontSize: "12px", color: "#9a9aaa", lineHeight: 1.7 }}>{content.design.brochure.desc}</p>
+
+          {/* ── Card 3: Brochure ── */}
+          <div className="design-media-card">
+            <TiltedCarousel
+              images={BROCHURE_PAGES}
+              width={BROCHURE_W}
+              height={MEDIA_H}
+              tiltY={10}
+              tiltX={2}
+            />
+            <div className="design-media-card-text" style={{ paddingTop: "40px", width: BROCHURE_W }}>
+              <h2
+                className="font-serif"
+                style={{ fontSize: "clamp(1.1rem, 1.8vw, 1.6rem)", fontWeight: 400, lineHeight: 1.3, color: "#2e2e2e", marginBottom: "10px" }}
+              >
+                {content.design.brochure.title}
+              </h2>
+              <p style={{ fontSize: "12px", color: "#9a9aaa", lineHeight: 1.7 }}>{content.design.brochure.desc}</p>
+            </div>
           </div>
         </div>
       </div>
