@@ -42,7 +42,6 @@ next-env.d.ts
 
 # large video source files (hosted externally)
 public/assets/design/video/video.MP4
-public/assets/product/loreal/欧莱雅商赛-视频.mov
 
 # psd source files
 public/assets/**/*.psd

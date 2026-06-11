@@ -164,8 +164,8 @@ export default function ProductSection() {
           </div>
         </div>
 
-        {/* Video — 暂隐藏，待上传外链后恢复 */}
-        {false && <div style={{ flex: 1, minWidth: "200px" }}>
+        {/* Video */}
+        <div style={{ flex: 1, minWidth: "200px" }}>
           <p
             style={{
               fontSize: "11px",
@@ -193,7 +193,7 @@ export default function ProductSection() {
               playsInline
             />
           </div>
-        </div>}
+        </div>
       </div>
 
       {/* 忆述光华小程序 — left: phones, right: text */}
